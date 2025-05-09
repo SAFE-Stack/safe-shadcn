@@ -11,9 +11,6 @@ let sharedPath = Path.getFullName "src/Shared"
 let serverPath = Path.getFullName "src/Server"
 let clientPath = Path.getFullName "src/Client"
 let deployPath = Path.getFullName "deploy"
-let sharedTestsPath = Path.getFullName "tests/Shared"
-let serverTestsPath = Path.getFullName "tests/Server"
-let clientTestsPath = Path.getFullName "tests/Client"
 
 Target.create "Clean" (fun _ ->
     Shell.cleanDir deployPath
@@ -46,26 +43,12 @@ Target.create "Azure" (fun _ ->
 
 Target.create "Build" (fun _ ->
     run dotnet [ "build"; "Application.sln" ] "."
-
-    )
+)
 
 Target.create "Run" (fun _ ->
     [
         "server", dotnet [ "watch"; "run"; "--no-restore" ] serverPath
         "client", dotnet [ "fable"; "watch"; "-o"; "output"; "-s"; "--run"; "npx"; "vite"; "--port"; "8081" ] clientPath
-    ]
-    |> runParallel)
-
-Target.create "RunTestsHeadless" (fun _ ->
-    run dotnet [ "run" ] serverTestsPath
-    run dotnet [ "fable"; "-o"; "output" ] clientTestsPath
-    run npx [ "mocha"; "output" ] clientTestsPath
-)
-
-Target.create "WatchRunTests" (fun _ ->
-    [
-        "server", dotnet [ "watch"; "run"; "--no-restore" ] serverTestsPath
-        "client", dotnet [ "fable"; "watch"; "-o"; "output"; "-s"; "--run"; "npx"; "vite" ] clientTestsPath
     ]
     |> runParallel)
 
@@ -76,9 +59,6 @@ open Fake.Core.TargetOperators
 let dependencies = [
     "Clean" ==> "RestoreClientDependencies" ==> "Bundle" ==> "Azure"
     "Clean" ==> "RestoreClientDependencies" ==> "Build" ==> "Run"
-
-    "RestoreClientDependencies" ==> "Build" ==> "RunTestsHeadless"
-    "RestoreClientDependencies" ==> "Build" ==> "WatchRunTests"
 ]
 
 [<EntryPoint>]

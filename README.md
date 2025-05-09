@@ -1,6 +1,6 @@
 # SAFE Template with ShadCN UI Components
 
-This template can be used to generate a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/) enhanced with [ShadCN UI](https://ui.shadcn.com/) components through the Feliz.Shadcn library. It was created using the dotnet [SAFE Template](https://safe-stack.github.io/docs/template-overview/) with additional integrations. If you want to learn more about the template why not start with the [quick start](https://safe-stack.github.io/docs/quickstart/) guide?
+This demo is used to showcase a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/) enhanced with [ShadCN UI](https://ui.shadcn.com/) components through the Feliz.Shadcn library.
 
 ## ShadCN UI Integration
 
@@ -43,7 +43,7 @@ Shadcn.card [
 ]
 ```
 
-> Note: This example focuses exclusively on the client-side implementation. The server and shared components are included as part of the SAFE stack structure but contain minimal code.
+> Note: This example focuses exclusively on the client-side implementation. The server and shared components are included as part of the SAFE stack structure but contain no logic.
 
 ## Install pre-requisites
 
@@ -66,23 +66,3 @@ Then open `http://localhost:8080` in your browser.
 The build project in root directory contains a couple of different build targets. You can specify them after `--` (target name is case-insensitive).
 
 <!-- Tests have been removed from this example to focus on ShadCN and Feliz integration -->
-
-Finally, there are `Bundle` and `Azure` targets that you can use to package your app and deploy to Azure, respectively:
-
-```bash
-dotnet run -- Bundle
-dotnet run -- Azure
-```
-
-## Documentation
-
-If you want to know more about the SAFE Stack and its components, visit the official [SAFE documentation](https://safe-stack.github.io/docs/).
-
-You will find more documentation about the technologies used in this template at the following places:
-
-* [Fable](https://fable.io/docs/) - F# to JavaScript compiler
-* [Elmish](https://elmish.github.io/elmish/) - MVU pattern for F# applications
-* [Feliz](https://zaid-ajaj.github.io/Feliz/) - React bindings for F#
-* [TailwindCSS](https://tailwindcss.com/docs) - Utility-first CSS framework
-* [ShadCN UI](https://ui.shadcn.com/) - Component library built with Radix UI and Tailwind
-* [Saturn](https://saturnframework.org/) - Web development framework for F#

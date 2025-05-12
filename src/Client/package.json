@@ -4,7 +4,6 @@
         "node": "~18 || ~20 || ~22",
         "npm": "~9 || ~10"
     },
-    "scripts": {},
     "dependencies": {
         "@radix-ui/react-avatar": "^1.1.7",
         "@radix-ui/react-slot": "^1.2.0",
@@ -21,6 +20,7 @@
         "@types/node": "^20.9.1",
         "@vitejs/plugin-react": "^4.2.0",
         "autoprefixer": "^10.4.16",
+        "gh-pages": "^6.3.0",
         "mocha": "^10.6.0",
         "postcss": "^8.4.31",
         "sass": "^1.69.5",

@@ -1,6 +1,6 @@
 # SAFE Template with ShadCN UI Components
 
-This demo is used to showcase a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/) enhanced with [ShadCN UI](https://ui.shadcn.com/) components through the Feliz.Shadcn library.
+This demo is used to showcase a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/) enhanced with [ShadCN UI](https://ui.shadcn.com/) components through the Feliz.Shadcn library. You can find a live version on [GitHub pages](https://safe-stack.github.io/safe-shadcn/)
 
 ## ShadCN UI Integration
 

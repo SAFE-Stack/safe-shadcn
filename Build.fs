@@ -26,6 +26,12 @@ Target.create "Bundle" (fun _ ->
     ]
     |> runParallel)
 
+Target.create "GhPages" (fun _ ->
+
+    run npx [ "gh-pages";"-d"; $"{deployPath}\\public" ] clientPath
+
+    )
+
 Target.create "Azure" (fun _ ->
     let web = webApp {
         name "SAFE-App"
@@ -59,6 +65,7 @@ open Fake.Core.TargetOperators
 let dependencies = [
     "Clean" ==> "RestoreClientDependencies" ==> "Bundle" ==> "Azure"
     "Clean" ==> "RestoreClientDependencies" ==> "Build" ==> "Run"
+    "Bundle" ==> "GhPages"
 ]
 
 [<EntryPoint>]

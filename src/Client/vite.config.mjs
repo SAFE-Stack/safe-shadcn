@@ -11,6 +11,7 @@ export default defineConfig({
     build: {
         outDir: "../../deploy/public",
     },
+    base: "/safe-shadcn/",
     resolve: {
         alias: {
             "@": path.resolve(__dirname),

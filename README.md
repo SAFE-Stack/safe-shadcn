@@ -58,6 +58,7 @@ You'll need to install the following pre-requisites in order to build SAFE appli
 To concurrently run the server and the client components in watch mode use the following command:
 
 ```bash
+dotnet tool restore;
 dotnet run
 ```
 

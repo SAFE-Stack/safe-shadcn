@@ -17,7 +17,7 @@ Target.create "Clean" (fun _ ->
     run dotnet [ "fable"; "clean"; "--yes" ] clientPath // Delete *.fs.js files created by Fable
 )
 
-Target.create "RestoreClientDependencies" (fun _ -> run npm [ "ci" ] ".")
+Target.create "RestoreClientDependencies" (fun _ -> run npm [ "ci" ] clientPath)
 
 Target.create "Bundle" (fun _ ->
     [
@@ -48,7 +48,7 @@ Target.create "Build" (fun _ ->
 Target.create "Run" (fun _ ->
     [
         "server", dotnet [ "watch"; "run"; "--no-restore" ] serverPath
-        "client", dotnet [ "fable"; "watch"; "-o"; "output"; "-s"; "--run"; "npx"; "vite"; "--port"; "8081" ] clientPath
+        "client", dotnet [ "fable"; "watch"; "-o"; "output"; "-s"; "--run"; "npx"; "vite"; ] clientPath
     ]
     |> runParallel)
 
